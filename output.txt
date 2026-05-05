@@ -2,7 +2,5 @@ Duplicates found (in order of first appearance):
 1042 -> appears 3 times
 2381 -> appears 2 times
 5567 -> appears 2 times
-3
-7
-9
-5
+Total Unique IDs: 5
+Total Duplicate IDs: 3

@@ -35,7 +35,7 @@ def main():
     # variable to count all duplicates, even the repeated ones
     total_duplicates_count = 0
     # variable to keep track of all IDs, even repeated ones
-    all_ids = 0
+    total_ids = 0
     ##keeping_track_of_order = []
 
     # pseudocode:
@@ -49,7 +49,7 @@ def main():
         if not table[hash_index]:
             table[hash_index]. append([element, 1])
             ##keeping_track_of_order.append([element, 1])
-            all_ids += 1
+            total_ids += 1
 
         # if element does NOT equal element at hash_index
         #         [   row    ][index at row][key]
@@ -64,13 +64,13 @@ def main():
             if found == False:
                 table[hash_index][0].append([element, 1])
                 ##keeping_track_of_order.append([element, 1])
-            all_ids += 1
+            total_ids += 1
         
         # if element DOES EQUAL element at hash_index, increment value by 1
         else:
             #    [   row    ][index at row][value]
             table[hash_index][0][1] += 1
-            all_ids += 1
+            total_ids += 1
 
 
     # now we just have to loop through table and print output as mentioned in document
@@ -115,12 +115,9 @@ def main():
             unique_duplicates_count += 1
             total_duplicates_count += table[hash_index][0][1]
 
-    unique_ids = (all_ids - total_duplicates_count) + unique_duplicates_count
-    write_output_file("output.txt", f"{unique_duplicates_count}\n")
-    write_output_file("output.txt", f"{total_duplicates_count}\n")
-    write_output_file("output.txt", f"{all_ids}\n")
-    write_output_file("output.txt", f"{unique_ids}\n")
-  
+    unique_ids = (total_ids - total_duplicates_count) + unique_duplicates_count
+    write_output_file("output.txt", f"Total Unique IDs: {unique_ids}\n")
+    write_output_file("output.txt", f"Total Duplicate IDs: {unique_duplicates_count}\n")
 
     
     
