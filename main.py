@@ -115,9 +115,11 @@ def main():
             unique_duplicates_count += 1
             total_duplicates_count += table[hash_index][0][1]
 
+    unique_ids = (all_ids - total_duplicates_count) + unique_duplicates_count
     write_output_file("output.txt", f"{unique_duplicates_count}\n")
     write_output_file("output.txt", f"{total_duplicates_count}\n")
     write_output_file("output.txt", f"{all_ids}\n")
+    write_output_file("output.txt", f"{unique_ids}\n")
   
 
     

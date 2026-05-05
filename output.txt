@@ -5,3 +5,4 @@ Duplicates found (in order of first appearance):
 3
 7
 9
+5
