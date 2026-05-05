@@ -1,2 +1,4 @@
 Duplicates found (in order of first appearance): 
-1042 -> appears 3 times2381 -> appears 2 times1042 -> appears 3 times5567 -> appears 2 times2381 -> appears 2 times1042 -> appears 3 times5567 -> appears 2 times
+1042 -> appears 3 times
+2381 -> appears 2 times
+5567 -> appears 2 times
