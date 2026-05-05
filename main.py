@@ -70,7 +70,7 @@ def main():
     #             keeping_track_of_order.append([bucket[0], bucket[1]])
     
     # we basically loop through IDs a second time to print duplicates with their occurences (in order of first appearance)
-    print("Duplicates found (in order of first appearance): ")
+    write_output_file("output.txt", "Duplicates found (in order of first appearance): ")
     for element in identifications:
         hash_index = my_hash_function(element, table_size)
         # we look for element in row if not in the first index
@@ -79,15 +79,16 @@ def main():
             # look for element in row
             for item in table[hash_index]:
                 if item[0] == element and item[1] > 1:
-                    print(element, " -> appears ", item[1], " times")
+                    write_output_file("output.txt", element, " -> appears ", item[1], " times")
         # we print element only if it is a duplicate 
         #         [   row    ][index at row][key]
         if table[hash_index][       0    ][ 0 ] == element and table[hash_index][       0    ][ 1 ] > 1:
-            print(element, " -> appears ", item[1], " times")      
+            write_output_file("output.txt", element, " -> appears ", item[1], " times")
+
   
 
-    # write to output
-    write_output_file("output.txt", result)
+    
+    
 
 
 if __name__ == "__main__":
