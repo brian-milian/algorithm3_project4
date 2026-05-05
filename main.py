@@ -32,6 +32,8 @@ def main():
     # from here you can update the size of the table
     table_size = 30
     table = [[] for _ in range(table_size)]
+    total_duplicates = 0
+    unique_ids = 0
     ##keeping_track_of_order = []
 
     # pseudocode:
@@ -45,6 +47,7 @@ def main():
         if not table[hash_index]:
             table[hash_index]. append([element, 1])
             ##keeping_track_of_order.append([element, 1])
+            unique_ids += 1
 
         # if element does NOT equal element at hash_index
         #         [   row    ][index at row][key]
@@ -59,11 +62,13 @@ def main():
             if found == False:
                 table[hash_index][0].append([element, 1])
                 ##keeping_track_of_order.append([element, 1])
+            unique_ids += 1
         
         # if element DOES EQUAL element at hash_index, increment value by 1
         else:
             #    [   row    ][index at row][value]
             table[hash_index][0][1] += 1
+            unique_ids += 1
 
 
     # now we just have to loop through table and print output as mentioned in document
@@ -79,6 +84,7 @@ def main():
     # we basically loop through IDs a second time to print duplicates with their occurences (in order of first appearance)
 
     keep_track_of_prints = [[] for _ in range(table_size)]
+    duplicate_counter = 0
 
     
 
@@ -96,12 +102,19 @@ def main():
                 if item[0] == element and item[1] > 1 and not keep_track_of_prints[hash_index]:
                     write_output_file("output.txt", f"{element} -> appears {item[1]} times\n")
                     keep_track_of_prints[hash_index].append([element, item[1]])
+                    duplicate_counter += 1
+                    total_duplicates += item[1]
         # we print element only if it is a duplicate 
         #         [   row    ][index at row][key]
         if table[hash_index][0][0] == element and table[hash_index][0][1] > 1 and not keep_track_of_prints[hash_index]:
             write_output_file("output.txt", f"{element} -> appears {table[hash_index][0][1]} times\n")
             keep_track_of_prints[hash_index].append([element, table[hash_index][0][1]])
+            duplicate_counter += 1
+            total_duplicates += table[hash_index][0][1]
 
+    write_output_file("output.txt", f"{duplicate_counter}\n")
+    write_output_file("output.txt", f"{total_duplicates}\n")
+    write_output_file("output.txt", f"{unique_ids}\n")
   
 
     
